@@ -87,4 +87,49 @@ server {
 - Install the Prettier plugin in vscode and set the format on saveS
 
 
+## Bugfixes
+```shell
+npm run build
+
+> n9e-fe@v6.7.1 build
+> tsc && cross-env NODE_OPTIONS=--max-old-space-size=6096 vite build
+
+src/components/PromQueryBuilder/Operations/Operation.tsx:84:22 - error TS2345: Argument of type 'number | null' is not assignable to parameter of type 'VisualQueryOperationParamValue'.
+  Type 'null' is not assignable to type 'VisualQueryOperationParamValue'.
+
+84             onChange(val);
+                        ~~~
+
+src/pages/traceCpt/Search.tsx:326:72 - error TS2322: Type 'number | null' is not assignable to type 'number | undefined'.
+  Type 'null' is not assignable to type 'number | undefined'.
+
+326                       onChange={(num_traces) => setSearch({ ...search, num_traces })}
+                                                                           ~~~~~~~~~~
+
+
+Found 2 errors in 2 files.
+
+Errors  Files
+     1  src/components/PromQueryBuilder/Operations/Operation.tsx:84
+     1  src/pages/traceCpt/Search.tsx:326
+
+```
+
+
+`这两个错误都是由于尝试将 null 分配给不接受 null 的类型引起的。在 TypeScript 中，null 和 undefined 是不同的类型，不能互相赋值。`
+
+`对于第一个错误，你可以通过检查 val 是否为 null 来解决。如果 val 为 null，则不调用 onChange 函数。`
+
+`对于第二个错误，你可以在设置 num_traces 时检查其是否为 null。如果是 null，则将其设置为 undefined。
+以下是修复这两个错误的代码：`
+
+```javascript
+// src/components/PromQueryBuilder/Operations/Operation.tsx
+if (val !== null) {
+  onChange(val);
+}
+
+// src/pages/traceCpt/Search.tsx
+onChange={(num_traces) => setSearch({ ...search, num_traces: num_traces === null ? undefined : num_traces })}
+```
 

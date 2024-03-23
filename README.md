@@ -40,6 +40,7 @@ npm config get registry
 
 ```
 npm install
+# 若遇到npm镜像源认证错误，需要删除package-lock.json文件后再执行
 ```
 
 ## Start

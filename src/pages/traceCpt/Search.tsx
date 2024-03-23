@@ -322,8 +322,8 @@ export default function Index(props: IProps) {
                     <InputNumber
                       min={0}
                       style={{ width: '100%' }}
-                      value={search.num_traces}
-                      onChange={(num_traces) => setSearch({ ...search, num_traces })}
+                      value={search.num_traces ?? undefined}
+                      onChange={(num_traces) => setSearch({ ...search, num_traces: num_traces ?? undefined })}
                       onPressEnter={() => handleSearch(false)}
                     />
                   </LabelField>

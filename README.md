@@ -45,7 +45,11 @@ npm install
 ## Start
 
 ```
+#1、前端的vite.config.ts的proxy中/api/n9e的地址配置为：target: 'http://127.0.0.1:17000/',
+#2、运行webapi: ./n9e webapi -c etc/config.toml
+#3、启动本地前端项目:
 npm run dev
+#4、此时前端项目正常运行了
 ```
 
 The back-end api proxy config is https://github.com/n9e/fe/blob/main/vite.config.ts#L41

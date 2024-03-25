@@ -186,7 +186,7 @@ function App() {
             console.error(e);
           }
         }
-        document.title = siteInfo?.page_title || 'Nightingale';
+        document.title = siteInfo?.page_title || 'Stellar';
         if (iconLink) {
           iconLink.href = siteInfo?.favicon_url || '/image/favicon.svg';
         }

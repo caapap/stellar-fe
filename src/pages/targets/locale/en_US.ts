@@ -18,7 +18,7 @@ const en_US = {
   cpu_util: 'CPU',
   cpu_num: 'Cores',
   offset: 'Offset',
-  offset_tip: 'The calculation logic is to subtract the time when the machine is deployed by Nightingale from the time when the machine is deployed by categraf',
+  offset_tip: 'The calculation logic is to subtract the time when the machine is deployed by Stellar from the time when the machine is deployed by categraf',
   os: 'OS',
   arch: 'CPU Arch',
   update_at: 'Update at',

@@ -1,6 +1,6 @@
 {
-  "name": "n9e-fe",
-  "version": "v6.7.1",
+  "name": "stellar-fe",
+  "version": "v1.0",
   "scripts": {
     "dev": "vite --port 8765 --host",
     "dev:advanced": "vite --port 8765 --host --mode advanced",
@@ -57,6 +57,7 @@
     "re-resizable": "^6.9.9",
     "react": "^17.0.0",
     "react-ace": "^10.1.0",
+    "react-beforeunload": "^2.6.0",
     "react-color": "^2.19.3",
     "react-dom": "^17.0.0",
     "react-draggable": "^4.4.5",

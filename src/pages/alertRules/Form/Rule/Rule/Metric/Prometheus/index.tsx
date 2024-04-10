@@ -16,9 +16,9 @@
  */
 
 import React, { useContext } from 'react';
-import { Form, Row, Col, Card, Space, Select } from 'antd';
-import { PlusCircleOutlined, MinusCircleOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
+import { Form, Row, Col, Card, Space, Select, Tooltip, Radio } from 'antd';
+import { PlusCircleOutlined, MinusCircleOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { Trans, useTranslation } from 'react-i18next';
 import _ from 'lodash';
 import { CommonStateContext } from '@/App';
 import { PromQLInputWithBuilder } from '@/components/PromQLInput';
@@ -48,20 +48,32 @@ export default function index(props: { form: any; datasourceCate: string; dataso
   return (
     <>
       {IS_PLUS && (
-        <Form.Item label={t('ruleConfigPromVersion')} name={['rule_config', 'version']} initialValue='v1'>
-          <Select
+        <Form.Item
+          label={
+            <Space>
+              {t('ruleConfigPromVersion')}
+              <Tooltip
+                title={
+                  <Trans
+                    ns='alertRules'
+                    i18nKey='ruleConfigPromVersion_tip'
+                    components={{
+                      br: <br />,
+                    }}
+                  />
+                }
+              >
+                <QuestionCircleOutlined />
+              </Tooltip>
+            </Space>
+          }
+          name={['rule_config', 'version']}
+          initialValue='v1'
+        >
+          <Radio.Group
             disabled={disabled}
-            options={[
-              {
-                label: 'v1',
-                value: 'v1',
-              },
-              {
-                label: 'v2',
-                value: 'v2',
-              },
-            ]}
-            onChange={(val) => {
+            onChange={(e) => {
+              const val = e.target.value;
               if (val === 'v2') {
                 const rule_config = form.getFieldValue('rule_config');
                 form.setFieldsValue({
@@ -85,7 +97,10 @@ export default function index(props: { form: any; datasourceCate: string; dataso
                 });
               }
             }}
-          />
+          >
+            <Radio value='v1'>{t('ruleConfigPromVersion_v1')}</Radio>
+            <Radio value='v2'>{t('ruleConfigPromVersion_v2')}</Radio>
+          </Radio.Group>
         </Form.Item>
       )}
       {ruleConfigVersion === 'v2' ? (

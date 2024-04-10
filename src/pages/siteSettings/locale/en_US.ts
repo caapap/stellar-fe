@@ -9,9 +9,9 @@ const en_US = {
   menu_small_logo_url: 'Menu Page Small Logo & Website Favicon',
   menu_small_logo_url_tip: 'Enter the image resource address, recommended size 38x38',
   document_url: 'Document URL',
-  document_url_tip: 'Override the default Nightingale document link address',
+  document_url_tip: 'Override the default Stellar document link address',
   page_title: 'Site Title',
-  page_title_tip: 'Override the default title (Nightingale)',
+  page_title_tip: 'Override the default title (Stellar)',
   home_page_url: 'Home Page URL',
   home_page_url_tip: 'Override the default home page URL (/metric/explorer)',
   displayMode: {

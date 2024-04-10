@@ -4,17 +4,18 @@ import { cn } from '@/components/menu/SideMenu/utils';
 import { CommonStateContext } from '@/App';
 import { SIDE_MENU_COLORS, SideMenuColors } from './types';
 
-const THEME_COLOR = 'rgb(108, 83, 177)';
+// const THEME_COLOR = 'rgb(108, 83, 177)';
+const THEME_COLOR = '#272a38';
 export const getSideMenuBgColor = (color: SideMenuColors) => {
   switch (color) {
     case 'light':
       return '#fff';
     case 'dark':
       return '#272a38';
-    case 'theme':
-      return THEME_COLOR;
+    // case 'theme':
+    //   return THEME_COLOR;
     default:
-      return '#272a38';
+      return THEME_COLOR;
   }
 };
 
